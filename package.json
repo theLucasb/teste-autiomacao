@@ -1,0 +1,23 @@
+{
+  "name": "teste-autiomacao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/action.js -o dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theLucasb/teste-autiomacao.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theLucasb/teste-autiomacao/issues"
+  },
+  "homepage": "https://github.com/theLucasb/teste-autiomacao#readme",
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.1"
+  }
+}
