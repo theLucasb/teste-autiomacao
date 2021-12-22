@@ -11,7 +11,7 @@ async function run() {
     const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
 
     const randomPos = Math.round(Math.random() * 10);
-    const url = `https://api.tenor.com/v1/search?q=thank%20you&pos=${randomPos}&limit=1&media_filter=minimal&contentfilter=high&key=${TENOR_TOKEN}`;
+    const url = `https://api.tenor.com/v1/search?q=palmeiras%20palmeiras&pos=${randomPos}&limit=1&media_filter=minimal&contentfilter=high&key=${TENOR_TOKEN}`;
     await axios.get(url).then(function (response) { 
         var x = response.data.results
         media=x[0].media[0].tinygif.url
