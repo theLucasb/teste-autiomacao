@@ -17777,7 +17777,7 @@ async function run() {
     await octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: `Obrigado GitHUb Actions por testar a minha paciência!\n\n<img src="${media}" alt="${search_item}">`
+        body: `Obrigado pelo envio da sua pull request, enviaremos um retorno assim que possível.\n\n<img src="${media}" alt="${search_item}">`
     });
 
 }
