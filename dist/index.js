@@ -17751,15 +17751,16 @@ const axios = __nccwpck_require__(6545);
 const core = __nccwpck_require__(2186);
 const github = __nccwpck_require__(5438);
 
+var media = undefined;
+var search_item = 'Thank You';
+
 async function run() {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
     const TENOR_TOKEN = core.getInput('TENOR_TOKEN');
 
     const randomPos = Math.round(Math.random() * 1000);
     const url = `https://api.tenor.com/v1/search?q=thank%20you&pos=${randomPos}&limit=1&media_filter=minimal&contentfilter=high&key=${TENOR_TOKEN}`;
-    var media = undefined;
-    var search_item = 'Thank You';
-    axios.get(url).then(function (response) { 
+    await axios.get(url).then(function (response) { 
         var x = response.data.results
         media=x[0].media[0].tinygif.url
         console.log(media)
@@ -17776,7 +17777,7 @@ async function run() {
     await octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: `${msg}\n\n<img src="${media}" alt="${search_item}">`
+        body: `Obrigado GitHUb Actions por testar a minha paciência!\n\n<img src="${media}" alt="${search_item}">`
     });
 
 }
