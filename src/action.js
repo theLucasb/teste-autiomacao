@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const axios = require('axios');
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -8,9 +9,16 @@ async function run() {
 
     const randomPos = Math.round(Math.random() * 1000);
     const url = `https://api.tenor.com/v1/search?q=thank%20you&pos=${randomPos}&limit=1&media_filter=minimal&contentfilter=high&key=${TENOR_TOKEN}`;
-    const response = await fetch(url);
-    const { results } = await response.json();
-    const gifUrl = results[0].media[0].tinygif.url;
+    var media = undefined;
+    var search_item = 'Thank You';
+    axios.get(url).then(function (response) { 
+        var x = response.data.results
+        media=x[0].media[0].tinygif.url
+        console.log(media)
+    
+    }).catch(function (error) { 
+        console.log(error)
+    });
     
     const octokit = github.getOctokit(GITHUB_TOKEN);
 
@@ -20,7 +28,7 @@ async function run() {
     await octokit.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: `${msg}\n\n<img src="${url_media}" alt="${search_item}">`
+        body: `${msg}\n\n<img src="${media}" alt="${search_item}">`
     });
 
 }
