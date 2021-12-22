@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/theLucasb/teste-autiomacao.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Lucas Rodrigo Pereira de Souza",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/theLucasb/teste-autiomacao/issues"
   },
