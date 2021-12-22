@@ -14733,7 +14733,7 @@ async function run() {
     await octokit.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: `Thank you for submitting a pull request! We will try to review this as soon as we can.\n\n<img src="${gifUrl}" alt="thank you" />`
+        body: `${msg}\n\n<img src="${url_media}" alt="${search_item}">`
     });
 
 }

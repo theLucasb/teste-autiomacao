@@ -20,7 +20,7 @@ async function run() {
     await octokit.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: ${msg}\n\n<img src="${url_media}" alt="${search_item}">
+        body: `${msg}\n\n<img src="${url_media}" alt="${search_item}">`
     });
 
 }
